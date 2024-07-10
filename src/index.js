@@ -1,26 +1,46 @@
-import React from 'react';
+import { MantineProvider, MantineThemeProvider } from '@mantine/core';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
 import '@mantine/core/styles.css';
+import React from 'react';
+import './index.css';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
+import { Home } from './components/Home';
+import { Vehicles } from './components/Vehicles';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Home />,
     errorElement: <div>error</div>
   },
+  {
+    path: "/vehiculos",
+    element: <Vehicles/>,
+    errorElement: <div>error</div>
+  },
+  {
+    path: "/vehiculos/:id",
+    element: <div>detalle del vehiculo</div>,
+    errorElement: <div>error</div>
+  },
+  {
+    path: "/empresa",
+    element: <div>empresa</div>,
+    errorElement: <div>error</div>
+  }
 ]);
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <MantineProvider>
+      <RouterProvider router={router} />
+    </MantineProvider>
   </React.StrictMode>
 );
 
