@@ -11,13 +11,14 @@ export const Contentservice1 = ({ data = [] }) => {
     const navigate = useNavigate();
     const renderCards = () => {
         return data?.map((item, index) => {
+            const main = item?.Images?.find((image) => image.principal);
     return(
         <Box>
         <Grid>
             <Grid.Col span={{ span:6, md:6 }}>
                 <Center>
                 <Title size="5rem" c={'white'}>
-                 {item.title}
+                 {item.name}
                 </Title>
                 </Center>
                 <Card>
@@ -36,7 +37,7 @@ export const Contentservice1 = ({ data = [] }) => {
             <Card>
             <Grid.Col span={{ span:6, md:6 }}>
                 <Card.Section>
-                    <Image style={imgStyles} src={item.image} alt={item.title} />
+                <Image  style={imgStyles} src={`data:image/png;base64,${main?.base64}`} alt={item.name} />
                     
                 </Card.Section>
             </Grid.Col>
