@@ -15,12 +15,13 @@ export const Vehiclescatalog = ({ data = [] }) => {
     const renderCards = () => {
 
         return data?.map((item, index) => {
+            const main = item?.Images?.find((image) => image.principal);
             return (
                 <Grid.Col span="auto">
                     <Card>
                         <Card.Section>
                             <Center>
-                                <Image  style={imgStyles} src={item.image} alt={item.title} />
+                                <Image  style={imgStyles} src={`data:image/png;base64,${main?.base64}`} alt={item.name} />
                             </Center>
                         </Card.Section>
                         
@@ -31,11 +32,11 @@ export const Vehiclescatalog = ({ data = [] }) => {
                             </Text>
                             <Center>
                             <Title order={2} size={"4rem"}>
-                                {item.title}
+                                {item.name}
                             </Title>
                             </Center>
                             <Text c="black">
-                                {item.description}
+                                {item.description ?? "No hay descripción"}
                             </Text>
                         </Card.Section>
                         <GridCol span={{ span:12, md:12 }}>

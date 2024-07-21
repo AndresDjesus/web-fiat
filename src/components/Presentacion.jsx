@@ -17,7 +17,6 @@ export const Presentacion = ({ data = [] }) => {
                 </Title>
                 </Center>
                 <Card>
-                    
                     <Center>
                     <Text>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias officiis error quas eveniet consequuntur illo minus. Sunt, inventore. Sint expedita porro placeat voluptatem id accusantium quasi amet fuga nemo qui?
