@@ -16,12 +16,6 @@ export const Blog = () => {
                             <Title c={"white"} size={"6rem"}>Bienvenido a nuestro Blog</Title>
                         </Center>
                     </GridCol>
-                    <GridCol span={{ span:12, md:12 }}>
-                    <Anchor size={"2rem"} href="#" target="_blank" m={12}>Volver</Anchor>
-                    <Anchor size={"2rem"} href="#" target="_blank" m={12}>Automotores Reiga</Anchor>
-                    <Anchor size={"2rem"} href="#" target="_blank" m={12}>Vehiculos</Anchor>
-                    <Anchor size={"2rem"} href="#" target="_blank" m={12}>Fiat Venezuela</Anchor>
-                    </GridCol>
                     <GridCol>
                         <Title size={"2rem"}>Todas las noticias del Mundo Automotriz</Title>
                     </GridCol>

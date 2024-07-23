@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { Footer } from "./Footers";
-import Concesionario from '../imagenes/concesionario.png';
 import { Box, Card, Grid ,Button, Center, GridCol , Image, Title, Text, AspectRatio} from "@mantine/core";
+import { getCompany } from "../services/company";
 
 export const Empresa = () => {
+    const [company, setCompany] = useState([]);
+  
+    useEffect(() => {
+        const fetchCompany = async () => {
+          const data = await getCompany();
+          setCompany(data[0]);
+        };
+     
+        fetchCompany(); // Llama a la función dentro del contexto asíncrono
+      }, []);
+      console.log(company)
+    
     const imgStyles = {
         width: "70rem",
         height: "30rem"
     }
+    console.log(company?.Images?.[0]?.base64)
+
     return (
         <Box>
             <Grid>
@@ -23,13 +37,13 @@ export const Empresa = () => {
                     <Grid.Col span={{ span:6, md:6 }}>
                 <Center>
                 <Title size="5rem" c={"white"}>
-                  Automotores Reiga
+                    {company.name }
                 </Title>
                 </Center>
                 <Card>
                     <Center>
                     <Text>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias officiis error quas eveniet consequuntur illo minus. Sunt, inventore. Sint expedita porro placeat voluptatem id accusantium quasi amet fuga nemo qui?
+                    {company.description}
                     </Text>
                     </Center>                  
                 </Card>
@@ -38,8 +52,7 @@ export const Empresa = () => {
             <Card>
             <Grid.Col span={{ span:6, md:6 }}>
                 <Card.Section>
-                    <Image style={imgStyles} src={Concesionario} alt='Fiat Cronos' />
-                    
+                <Image  style={imgStyles} src={`data:image/png;base64,${company?.Images?.[0]?.base64}`} alt={company.name} />
                 </Card.Section>
             </Grid.Col>
             </Card>
@@ -47,14 +60,14 @@ export const Empresa = () => {
                         <Title c={"white"} size={"4rem"}> Mision </Title>
                         <br /><br />
                         <Text c={"white"} size="2.5rem">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid exercitationem magni possimus, minima ullam cum nostrum eum voluptas, accusamus nisi dolorum aut sequi obcaecati suscipit ad! Molestias inventore unde id!
+                            {company?.CompanyProfiles?.[0]?.mission}
                         </Text>
                     </Grid.Col>
                     <Grid.Col span={{ span:12, md:12 }}>
                         <Title c={"white"} size={"4rem"}> Vision </Title>
                         <br /><br />
                         <Text c={"white"} size="2.5rem">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid exercitationem magni possimus, minima ullam cum nostrum eum voluptas, accusamus nisi dolorum aut sequi obcaecati suscipit ad! Molestias inventore unde id!
+                            {company?.CompanyProfiles?.[0]?.vision}
                         </Text>
                     </Grid.Col>
                     <Grid.Col span={{ span:12, md:12 }}>
@@ -63,7 +76,7 @@ export const Empresa = () => {
                     </Box>      
                         <br /><br />
                         <Text c={"white"} size="2.5rem">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid exercitationem magni possimus, minima ullam cum nostrum eum voluptas, accusamus nisi dolorum aut sequi obcaecati suscipit ad! Molestias inventore unde id!
+                            {company?.CompanyProfiles?.[0]?.history}
                         </Text>
                     </Grid.Col>
                     <Grid.Col span={{ span:12, md:12 }}>
@@ -71,16 +84,18 @@ export const Empresa = () => {
                         <br /><br />
                         <AspectRatio ratio={10 / 4}>
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.3063874233135!2d-74.04668908358428!3d40.    68924937933441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25090129c363d%3A0x40c6a5770d25022b!2sStatue%20of%20Liberty%20National%20Monument!5e0!3m2!1sen!2sru!4v1644262070010!5m2!1sen!2sru"
-                            title="Google map"
-                        style={{ border: 0 }}
-                         />
-    </AspectRatio>
+                                src="https://www.google.com/maps/place/Automotores+Reiga,+C.A./@10.48434,-66.9072973,17z/data=!3m1!4b1!4m6!3m5!1s0x8c2a5f324e4f3e73:0x4dfb3dfac4e2140e!8m2!3d10.48434!4d-66.9072973!16s%2Fg%2F11f3r694v9?entry=ttu"
+                                title="Google map"
+                                style={{ border: 0 }}
+                              />
+                            </AspectRatio>
+                          );
                     </Grid.Col>
                     <Grid.Col span={{ span:12, md:12 }}>
                         <Footer />
                     </Grid.Col>
             </Grid>
         </Box>
+
     )
 }
