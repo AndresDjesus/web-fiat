@@ -21,7 +21,6 @@ export const Empresa = () => {
         width: "70rem",
         height: "30rem"
     }
-    console.log(company?.Images?.[0]?.base64)
 
     return (
         <Box>

@@ -1,21 +1,23 @@
+import { format } from 'date-fns';
 import React from "react";
 import { Box, Grid, Card, Image, Center, Text, Title, Button, Group} from "@mantine/core"
 
 export const ContenidoBlog = ({ data = [] }) => {
-
+    
     const imgStyles = {
         width: "40rem",
         height: "25rem"
     }
-
     const renderCards = () => {
         return data?.map((item, index) => {
+
+            const formattedDate = format(item?.date ? new Date(item?.date) : new Date(), 'dd/MM/yyyy');
             return (
                 <Grid.Col span="auto">
                     <Card>
                         <Card.Section>
                             <Center>
-                                <Image  style={imgStyles} src={item.image} alt={item.title} />
+                                <Image  style={imgStyles} src={`data:image/png;base64,${item?.Images?.[0]?.base64}`} alt={item.title} />
                             </Center>
                         </Card.Section>
                         
@@ -24,10 +26,10 @@ export const ContenidoBlog = ({ data = [] }) => {
                                 {item.title}
                             </Title>
                             <Text>
-                                {item.description}
+                                {item.content}
                             </Text>
                             <Text>
-                                {item.fecha}
+                                {formattedDate}
                             </Text>
                         </Card.Section>
                         <Card.Section>
