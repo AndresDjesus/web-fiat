@@ -8,8 +8,7 @@ import {Services} from "./components/Services";
 import {Empresa} from "./components/Empresa";
 import {Blog} from "./components/Blog";
 import {Registro} from "./components/Registro";
-import {Backoffice } from "./components/Backoffice";
-import { BackofficeVehicles } from "./components/BackofficeVehicles";
+
 
 function App() {
   return (
@@ -22,8 +21,7 @@ function App() {
          <Route path="/servicios/:id" element={<div>detalle del servicio</div>} />
          <Route path="/blog" element={<Blog />} />
          <Route path="/get-started" element={<Registro />} />
-         <Route path="/backoffice" element = {<Backoffice />} />
-         <Route path="/backoffice/vehiculos" element = {<BackofficeVehicles />} />
+   
         
 
          {/* Define other routes that you need*/}

@@ -14,8 +14,7 @@ import { Empresa } from './components/Empresa';
 import { Services } from './components/Services';
 import { Blog } from './components/Blog';
 import { Registro } from './components/Registro';
-import { Backoffice } from './components/Backoffice';
-import { BackofficeVehicles } from './components/BackofficeVehicles';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -65,16 +64,6 @@ const router = createBrowserRouter([
     element: <Services />,
     errorElement: <div>error</div>
   }, 
-  {
-    path: "/backoffice",
-    element: <Backoffice />,
-    errorElement: <div>error</div>
-  },
-  {
-    path: "/backoffice/vehiculos",
-    element: <BackofficeVehicles />,
-    errorElement: <div>error</div>
-  }
 
 ]);
 

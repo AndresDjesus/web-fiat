@@ -1,23 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { Box, Button, BackgroundImage, Group, Grid, GridCol, Title, Text, Center} from '@mantine/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faInstagram,faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import {getFooter} from "../services/footer";
 export const Footer = () => {
-  
+  const [footer, setFooter] = useState([]);
+  useEffect(() => {
+    const fetchFooter = async () => {
+      const data = await getFooter();
+      setFooter(data[0]);
+    };
+    fetchFooter(); // Llama a la función dentro del contexto asíncrono
+  }, []);
+
+  console.log(footer)
     
     function renderCards(){
     return(
 
      <BackgroundImage 
-        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYyI06iKqd0z8Z3qmrVJssO2APEYZgOx_qA_vOH-qBkVQ-rR2kGMcmOls0LyMJMeW4ISIR6KYK4GnKj1VtkFqvhRsCJqIZrN7R2pan7SnEyXyCqtH0vXBmTfaZKTHo1JwvyGYf-ryeG3YO/s1600/fiat-500x-my-face.jpg" radius="md" opacity={0.8}
+        src={`data:image/png;base64,${footer?.Images?.[0]?.base64}`} alt="Footer"  radius="md" opacity={0.8}
       >
       <Grid span={{span:24, md:24}}>
       <GridCol span={{ span:4, md:4 }}>
         <footer>
         <div className="contacto">
           <Title c={'white'} size={'3rem'}>Nuestro Consecionario:</Title>
-          <Text c={'white'} size={'2.5rem'}>Avenida Nueva Granada </Text>
+          <Text c={'white'} size={'2.5rem'}>
+            {footer?.address}
+            </Text>
         </div>
         </footer>
       </GridCol>
@@ -26,10 +38,12 @@ export const Footer = () => {
         <div className="contacto">
           <Title size={'3rem'} c={'white'}>Contáctanos:</Title>
           <br />
-          <Text c={'white'} size={'2.5rem'}>Correo electrónico: @automotoresreiga.com</Text>
+          <Text c={'white'} size={'2.5rem'}>
+            Email: {footer?.email}
+          </Text>
           <br />
-          <Text c={'white'} size={'2.5rem'}>Teléfono: 
-                 0212-345678
+          <Text c={'white'} size={'2.5rem'}>
+            Telefono: {footer?.phone}
           </Text>
         </div>
         </footer>
@@ -43,13 +57,19 @@ export const Footer = () => {
           <br />
           <Group gap="lg">
           <Button size='3x' variant="outline">
-            <FontAwesomeIcon icon={faInstagram} size='4x' color='red'/>
+            <FontAwesomeIcon icon={faInstagram} size='4x' color='white' 
+            onClick={() => window.open(footer?.social_networks?.[0]?.instagram?.url, '_blank')}
+            />
           </Button>
           <Button size='3x' variant="outline">
-            <FontAwesomeIcon icon={faEnvelope} size='4x' color='red' />
+            <FontAwesomeIcon icon={faEnvelope} size='4x' color='white' 
+            onClick={() => window.open(footer?.social_networks?.[0]?.email?.url, '_blank')}
+            />
           </Button>
           <Button size='3x' variant="outline">
-            <FontAwesomeIcon icon={faWhatsapp} size='4x' color='red'/>
+            <FontAwesomeIcon icon={faWhatsapp} size='4x' color='white'
+            onClick={() => window.open(footer?.social_networks?.[0]?.whatsapp?.url, '_blank')}
+            />
           </Button>
           </Group>
         </div>

@@ -36,13 +36,13 @@ export const Empresa = () => {
                     <Grid.Col span={{ span:6, md:6 }}>
                 <Center>
                 <Title size="5rem" c={"white"}>
-                    {company.name }
+                    {company?.name }
                 </Title>
                 </Center>
                 <Card>
                     <Center>
                     <Text>
-                    {company.description}
+                    {company?.description}
                     </Text>
                     </Center>                  
                 </Card>
