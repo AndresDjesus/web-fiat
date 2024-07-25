@@ -36,7 +36,7 @@ export const Home = () => {
                         <Button
                         variant="gradient" size="xl"
                         gradient={{ from: 'red', to: 'gray', deg: 90 }}
-                        >
+                        component="a" href="/vehiculos">
                         Ver Catalogo
                         </Button>
                         </Center>
@@ -63,8 +63,8 @@ export const Home = () => {
                         <br /><br /><br /><br />
                         <Button
                         variant="gradient" size="xl"
-                        gradient={{ from: 'red', to: 'gray', deg: 90 }}
-                        >
+                        gradient={{ from: 'red', to: 'gray', deg: 90 }} component="a" href="/empresa">
+                        
                         Conoce más sobre nuestra empresa
                         </Button>
                         </Center>      
@@ -80,8 +80,8 @@ export const Home = () => {
                         <Center>
                         <Button
                         variant="gradient" size="xl"
-                        gradient={{ from: 'red', to: 'gray', deg: 90 }}
-                        >
+                        gradient={{ from: 'red', to: 'gray', deg: 90 }} component="a" href="/servicios">
+                        
                         Ver Todos los Servicios
                         </Button>
                         </Center>

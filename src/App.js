@@ -8,6 +8,7 @@ import {Services} from "./components/Services";
 import {Empresa} from "./components/Empresa";
 import {Blog} from "./components/Blog";
 import {Registro} from "./components/Registro";
+import { VehicleId } from "./components/VehicleId";
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
        <Routes>
          <Route path="/" element={<Home />} />
          <Route path="/vehiculos" element={<Vehicles />} />
-         <Route path="/vehiculos/:id" element={<div>detalle del vehiculo</div>} />
+         <Route path="/vehiculos/:id" element={<VehicleId />} />
          <Route path="/empresa" element={<Empresa />} />
          <Route path="/servicios" element={<Services />} />
          <Route path="/servicios/:id" element={<div>detalle del servicio</div>} />

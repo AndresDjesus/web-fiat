@@ -14,6 +14,7 @@ import { Empresa } from './components/Empresa';
 import { Services } from './components/Services';
 import { Blog } from './components/Blog';
 import { Registro } from './components/Registro';
+import { VehicleId } from './components/VehicleId';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/vehiculos/:id",
-    element: <div>detalle del vehiculo</div>,
+    element: <VehicleId />,
     errorElement: <div>error</div>
   },
   {

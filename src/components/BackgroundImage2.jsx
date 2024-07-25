@@ -25,7 +25,7 @@ export const Imagenfondo2 = () => {
         <Center>
         <Button
                 variant="gradient" size="xl"
-                gradient={{ from: 'red', to: 'gray', deg: 90 }}
+                gradient={{ from: 'red', to: 'gray', deg: 90 }} component="a" href="/vehiculos"
                 >
                 Ver Catalogo
           </Button>

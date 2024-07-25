@@ -42,7 +42,7 @@ export const Vehiclescatalog = ({ data = [] }) => {
                         <GridCol span={{ span:12, md:12 }}>
                             
                         <Group gap="lg" justify="center">
-                            <Button variant="button" onClick={() => navigate(`/vehiculos/${index}`)} size="lg" radius="md" c={"black"} >Ver mas</Button>
+                            <Button variant="button" onClick={() => navigate(`/vehiculos/${item?.id}`)} size="lg" radius="md" c={"black"} >Ver mas</Button>
                          <Button size='3x' variant="default">
                         <FontAwesomeIcon icon={faInstagram} size='4x' color='red'/>
                          </Button>
