@@ -56,8 +56,8 @@ const Navbar = () => {
              </NavLink>
            </li>
            <li className="nav__item">
-             <NavLink to="/get-started" className="nav__link nav__cta">
-               Registrase
+             <NavLink to="/contactanos" className="nav__link nav__cta">
+               Contactanos
              </NavLink>
            </li>
          </ul>

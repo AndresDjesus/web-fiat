@@ -31,7 +31,7 @@ export const Blog = () => {
                         </Center>
                     </GridCol>
                     <GridCol>
-                        <Title size={"2rem"}>Todas las noticias del Mundo Automotriz</Title>
+                        <Center><Title size={"3rem"} c={"white"}>Todas las noticias del Mundo Automotriz</Title></Center>
                     </GridCol>
                     <GridCol span={{ span:12, md:12 }}>
                         <ContenidoBlog data={[blog]}/>

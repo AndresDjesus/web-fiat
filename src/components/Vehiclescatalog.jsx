@@ -1,21 +1,31 @@
+import React, { useEffect, useState } from "react";
 import { Box, Grid, Card, Image, Center, Text, Title ,Button, Group, GridCol} from "@mantine/core";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faInstagram,faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { useNavigate } from "react-router-dom";
-
+import {getFooter} from "../services/footer";
 
 export const Vehiclescatalog = ({ data = [] }) => {
     const imgStyles = {
         width: "60rem",
         height: "35rem"
     }
-
+    const [footer, setFooter] = useState([]);
+    useEffect(() => {
+      const fetchFooter = async () => {
+        const data = await getFooter();
+        setFooter(data[0]);
+      };
+      fetchFooter(); // Llama a la función dentro del contexto asíncrono
+    }, []);
+   
     const navigate = useNavigate();
 
     const renderCards = () => {
-
+        
         return data?.map((item, index) => {
             const main = item?.Images?.find((image) => image.principal);
+
             return (
                 <Grid.Col span="auto">
                     <Card>
@@ -28,26 +38,26 @@ export const Vehiclescatalog = ({ data = [] }) => {
                         <Card.Section mt="md">
                            
                             <Text c="black" size={"3rem"} fw={"bold"}>
-                                {item.price}    
+                                ${item.price}    
                             </Text>
                             <Center>
                             <Title order={2} size={"4rem"}>
                                 {item.name}
                             </Title>
                             </Center>
-                            <Text c="black">
-                                {item.description ?? "No hay descripción"}
-                            </Text>
+                            
                         </Card.Section>
                         <GridCol span={{ span:12, md:12 }}>
                             
                         <Group gap="lg" justify="center">
                             <Button variant="button" onClick={() => navigate(`/vehiculos/${item?.id}`)} size="lg" radius="md" c={"black"} >Ver mas</Button>
                          <Button size='3x' variant="default">
-                        <FontAwesomeIcon icon={faInstagram} size='4x' color='red'/>
+                        <FontAwesomeIcon icon={faInstagram} size='4x' color='red' onClick={() => window.open(footer?.social_networks?.[0]?.instagram?.url, '_blank')}
+                        />
                          </Button>
                          <Button size='3x' variant="default">
-                         <FontAwesomeIcon icon={faWhatsapp} size='4x' color='red'/>
+                         <FontAwesomeIcon icon={faWhatsapp} size='4x' color='red' onClick={() => window.open(footer?.social_networks?.[0]?.whatsapp?.url, '_blank')}
+                        />
                         </Button>
                         </Group>
 

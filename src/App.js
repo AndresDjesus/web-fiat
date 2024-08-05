@@ -7,8 +7,10 @@ import {Vehicles} from "./components/Vehicles";
 import {Services} from "./components/Services";
 import {Empresa} from "./components/Empresa";
 import {Blog} from "./components/Blog";
-import {Registro} from "./components/Registro";
+import {Contactanos} from "./components/Contactanos";
 import { VehicleId } from "./components/VehicleId";
+import {ServicesId} from "./components/ServicesId"
+import {BlogId} from "./components/BlogId"
 
 
 function App() {
@@ -19,13 +21,12 @@ function App() {
          <Route path="/vehiculos/:id" element={<VehicleId />} />
          <Route path="/empresa" element={<Empresa />} />
          <Route path="/servicios" element={<Services />} />
-         <Route path="/servicios/:id" element={<div>detalle del servicio</div>} />
+         <Route path="/servicios/:id" element={<ServicesId />} />
          <Route path="/blog" element={<Blog />} />
-         <Route path="/get-started" element={<Registro />} />
+         <Route path="/blog/:id" element= {<BlogId />} />
+         <Route path="/contactanos" element={<Contactanos />} />
    
-        
-
-         {/* Define other routes that you need*/}
+      
        </Routes>
   );
 }

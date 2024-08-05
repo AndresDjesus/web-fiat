@@ -2,7 +2,7 @@
     width: 100%;
     top: 0;
     left: 0;
-    background-color: var(--mantine-color-red-6);
+    background-color: black;
     z-index: var(--z-fixed);
    }
    

@@ -5,6 +5,7 @@ import { Contentservice1 } from "./Contentservice1";
 import { Contentservice2 } from "./Contentservice2";
 import { Box, Card, Grid ,Button, Center, GridCol , Image, Title, Text, Stack, Group} from "@mantine/core";
 import { getServices } from "../services/services";
+import { useNavigate } from "react-router-dom";
 
 export const Services = () => {
 
@@ -17,6 +18,8 @@ export const Services = () => {
 
         fetchServices();
     }, []);
+
+    const navigate = useNavigate();
 
     return (
         <Box>
@@ -33,7 +36,7 @@ export const Services = () => {
                     <Grid.Col span={{ span:12, md:12 }}>
                         <Contentservice1 data={services}/>
                         <br /><br />
-                        <Contentservice2 data={[{ title: 'Mecanica General ', image: 'https://totalfiat.co/wp-content/uploads/2022/06/mecanica.jpeg', description: 'fasjfjkasdfjsfksfksfjksfjksfjksjkfkjshfjkshfjshfjkshfjkaklnckjsdlkakkisodfjisjfhvnvnsdfslkjasldkkjsfjsdfkkposdksopdfksdjkdsfjksfjkdshfsfnsjkvnsjwoiohfklspowksdiskdnafjaio'}]}/>
+                        <Contentservice2 data={services}/>
                     </Grid.Col>
 
                     <Grid.Col span={{ span:12, md:12 }}>

@@ -12,9 +12,11 @@ import { Home } from './components/Home';
 import { Vehicles } from './components/Vehicles';
 import { Empresa } from './components/Empresa';
 import { Services } from './components/Services';
+import {ServicesId} from './components/ServicesId';
 import { Blog } from './components/Blog';
-import { Registro } from './components/Registro';
+import { Contactanos } from './components/Contactanos';
 import { VehicleId } from './components/VehicleId';
+import {BlogId} from './components/BlogId';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -47,7 +49,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/servicios/:id",
-    element: <div>detalle del vehiculo</div>,
+    element: <ServicesId />,
     errorElement: <div>error</div>
   },
   {
@@ -56,8 +58,13 @@ const router = createBrowserRouter([
     errorElement: <div>error</div>
   },
   {
-    path: "/get-started",
-    element: <Registro />,
+    path: "/blog/:id",
+    element: <BlogId />,
+    errorElement: <div>error</div>
+  },
+  {
+    path: "/contactanos",
+    element: <Contactanos />,
     errorElement: <div>error</div>
   },
   {

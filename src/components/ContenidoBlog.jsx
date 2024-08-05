@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
 import React from "react";
 import { Box, Grid, Card, Image, Center, Text, Title, Button, Group} from "@mantine/core"
+import { useNavigate } from "react-router-dom";
 
 export const ContenidoBlog = ({ data = [] }) => {
     
@@ -8,6 +9,8 @@ export const ContenidoBlog = ({ data = [] }) => {
         width: "40rem",
         height: "25rem"
     }
+
+    const navigate = useNavigate();
     const renderCards = () => {
         return data?.map((item, index) => {
 
@@ -15,9 +18,10 @@ export const ContenidoBlog = ({ data = [] }) => {
             return (
                 <Grid.Col span="auto">
                     <Card>
+                        <br />
                         <Card.Section>
                             <Center>
-                                <Image  style={imgStyles} src={`data:image/png;base64,${item?.Images?.[0]?.base64}`} alt={item.title} />
+                                <Image  style={imgStyles} radius={"xl"} src={`data:image/png;base64,${item?.Images?.[0]?.base64}`} alt={item.title} />
                             </Center>
                         </Card.Section>
                         
@@ -34,8 +38,9 @@ export const ContenidoBlog = ({ data = [] }) => {
                         </Card.Section>
                         <Card.Section>
                         <Group gap="lg" justify="center">
-                            <Button variant="button" size="lg" radius="md" c={"black"} >Ver mas</Button>
-                        </Group>
+                         <Button variant="button" onClick={() => navigate(`/blog/${item?.id}`)} size="lg" radius="xl" c={"white"} bg={"red"} >Ver mas</Button>
+                </Group>   
+                <br />
                         </Card.Section>
 
                     </Card>

@@ -70,7 +70,7 @@ export const Empresa = () => {
                         </Text>
                     </Grid.Col>
                     <Grid.Col span={{ span:12, md:12 }}>
-                    <Box border radius={4} padding={20} style={{ border: "2px solid red" }}>
+                    <Box border radius={4} padding={20} >
                         <Title size={"4rem"}  c={"white"} weight="bold">Historia</Title>
                     </Box>      
                         <br /><br />

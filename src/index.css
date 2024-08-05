@@ -23,8 +23,8 @@
 }
 
 body {
- background-color: var(--mantine-color-black);
- color: var(--mantine-color-black);
+ background-color: #0d939a;
+ color: black;
  font-family: var(--body-font);
  height: 100%;
 }

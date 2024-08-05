@@ -26,18 +26,17 @@ export const Contentservice1 = ({ data = [] }) => {
                     <Text>
                     {item.description}
                     </Text>
-                    </Center>     
-
-                <Group gap="lg" justify="center">
-                    <Button variant="button" onClick={() => navigate(`/servicios/${index}`)} size="lg" radius="md" c={"black"} >Ver mas</Button>
-                    </Group>             
+                    </Center>               
                 </Card>
-                   
+                <br />
+                <Group gap="lg" justify="center">
+                <Button variant="button" onClick={() => navigate(`/servicios/${item?.id}`)} size="lg" radius="md" c={"black"} >Ver mas</Button>
+                </Group>   
              </Grid.Col>
             <Card>
             <Grid.Col span={{ span:6, md:6 }}>
                 <Card.Section>
-                <Image  style={imgStyles} src={`data:image/png;base64,${main?.base64}`} alt={item.name} />
+                <Image  style={imgStyles} src={`data:image/png;base64,${item?.Images?.[0]?.base64}`} alt={item.title} />
                     
                 </Card.Section>
             </Grid.Col>
