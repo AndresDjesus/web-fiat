@@ -8,6 +8,9 @@ import '@mantine/carousel/styles.css';
 import { rem } from '@mantine/core';
 import { Carousel } from '@mantine/carousel';
 import { IconArrowRight, IconArrowLeft } from '@tabler/icons-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCar } from '@fortawesome/free-solid-svg-icons'; // Asegúrate de usar el icono correcto
+
 
 export const VehicleId = () => {
 
@@ -136,8 +139,7 @@ export const VehicleId = () => {
                      <Card.Section  sx={{ height: "30rem" }}>
                                  <Title c={"white"}>Motor</Title>
                                  <Title c={"white"}>{vehicle?.motor?.name}</Title>
-                                 <Image  style= {imgStilo}src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} />  
-                                <br />
+                                 <FontAwesomeIcon icon={faCar} size="2x" />
                                  <Title c={"white"}>Categoria</Title>
                                  <Title c={"white"} >{vehicle?.category?.name} </Title>
                                  <Image style={imgStilo} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} />  
@@ -154,7 +156,7 @@ export const VehicleId = () => {
                                  <Image style={imgStilo} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} /> 
                                  <br />
                                  <Title c={"white"}> Pantalla</Title>
-                                 <Title></Title>
+                                 <Title c={"white"}>{vehicle?.screen}</Title>
                                  <Image style={imgStilo} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} /> 
                         </Card.Section>
                     </Group>
@@ -172,18 +174,18 @@ export const VehicleId = () => {
             </Grid>   
         </Card>
         <br /><br />
-        <Card>//DISENO
+        <Card>
         <Grid>
               <Grid.Col span={{span:12 , md: 12}}>
                 <Center><Title size={"4rem"} c={"dark"}> DISENO </Title></Center>
-                <Center><Title size={"2.5rem"} c={"dark"}> FABULOSO DENTRO Y FUERA DE LA CIUDAD </Title></Center>
+                <Center><Title size={"2.5rem"} c={"dark"}>{vehicle?.design?.title}</Title></Center>
                 <br /><br />
                 <Grid>
                  <Grid.Col span={{ span:5 , md: 5}}>
                  <Group gap="lg" justify="center">
                     <br /><br />
                      <Card.Section  sx={{ height: "30rem" }}>
-                       <Center><Text c={"dark"} size={"2rem"}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis saepe eveniet sit a, cupiditate fugit libero numquam illum nam sapiente, iste, facilis voluptatum? Reprehenderit voluptates quidem adipisci impedit modi ducimus.</Text></Center>
+                       <Center><Text c={"dark"} size={"2rem"}>{vehicle?.design?.content}</Text></Center>
                       </Card.Section>
                     </Group>
                 </Grid.Col>
@@ -196,10 +198,10 @@ export const VehicleId = () => {
               previousControlIcon={<IconArrowLeft style={{ width: rem(40), height: rem(40) }} />}
                >
             <Carousel.Slide>
-            <Image style={imgStyles} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} />
+            <Image style={imgStyles} src={`data:image/png;base64,${vehicle?.design?.Images[0]?.base64}`} alt={vehicle?.name} />
             </Carousel.Slide>
             <Carousel.Slide>
-            <Image style={imgStyles} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} />
+            <Image style={imgStyles} src={`data:image/png;base64,${vehicle?.design?.Images[0]?.base64}`} alt={vehicle?.name} />
             </Carousel.Slide>
             </Carousel>
                   </Group>
@@ -213,7 +215,7 @@ export const VehicleId = () => {
           <Grid>
             <Grid.Col span={{span:12 , md : 12}}>
                 <Center><Title size={"4rem"} c={"dark"}> INTERIOR </Title></Center>
-                <Center><Title size={"2.5rem"} c={"dark"}> CONFORT DE LOS PIES A LA CABEZA </Title></Center>
+                <Center><Title size={"2.5rem"} c={"dark"}> {vehicle?.inside?.title} </Title></Center>
                 <br />
                 <Carousel
               slideSize="90%"
@@ -222,14 +224,14 @@ export const VehicleId = () => {
               previousControlIcon={<IconArrowLeft style={{ width: rem(50), height: rem(50) }} />}
                >
             <Carousel.Slide>
-            <Image style={imgCarrusel} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} />
+            <Image style={imgCarrusel} src={`data:image/png;base64,${vehicle?.inside?.Images[0]?.base64}`} alt={vehicle?.name} />
             </Carousel.Slide>
             <Carousel.Slide>
-            <Image style={imgCarrusel} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} />
+            <Image style={imgCarrusel} src={`data:image/png;base64,${vehicle?.inside?.Images[0]?.base64}`} alt={vehicle?.name} />
             </Carousel.Slide>
             </Carousel>
             <br />
-            <Center><Title c={"dark"} size={"3rem"}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio repellat eius ex, nesciunt aliquam illum adipisci natus perspiciatis temporibus dolorem. Voluptatibus quo consectetur aut amet magni. Hic cum ducimus quas.</Title></Center>
+            <Center><Title c={"dark"} size={"3rem"}>{vehicle?.inside?.content}</Title></Center>
             </Grid.Col>
           </Grid>
         </Card>
@@ -238,9 +240,9 @@ export const VehicleId = () => {
             <Grid>
               <Grid.Col span={{span:12 , md:12}}>
               <Center><Title size={"4rem"} c={"dark"}>TECNOLOGIA Y CONECTIVIDAD </Title></Center>
-              <Center><Title size={"2.5rem"} c={"dark"}> CONDUCE SIEMPRE CONECTADO </Title></Center>
+              <Center><Title size={"2.5rem"} c={"dark"}> {vehicle?.technology?.title} </Title></Center>
               <br />
-              <Center><Title c={"gray"} size={"2rem"}> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, deleniti ab odio nemo, quo velit dignissimos corrupti mollitia eius doloremque corporis modi rem ex nesciunt molestias, voluptate ipsum sequi! Eius?</Title></Center>
+              <Center><Title c={"gray"} size={"2rem"}>{vehicle?.technology?.content}</Title></Center>
               </Grid.Col>
               </Grid>          
         </Card>
@@ -251,11 +253,11 @@ export const VehicleId = () => {
               <Center><Title size={"4rem"} c={"white"}>RENDIMIENTO</Title></Center>
                 <Center><Image style={imgStyles} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} />
                 </Center>
-                <Center><Title c={"white"}>CIUDAD: 12.5 KM/L</Title></Center>
+                <Center><Title c={"white"}>CIUDAD: {vehicle?.combustible?.ciudad}</Title></Center>
                 <br />
-                <Center><Title c={"white"}>CARRETERA : 19.3 KM/L </Title></Center>
+                <Center><Title c={"white"}>CARRETERA : {vehicle?.combustible?.carretera}</Title></Center>
                 <br /><br />
-                <Center><Text size="3rem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia ipsum tempora quos! Libero tempora voluptatem harum illum nesciunt quasi nam, pariatur atque praesentium qui suscipit, consectetur laudantium vero voluptatum.</Text></Center> 
+                <Center><Text size="3rem">{vehicle?.combustible?.description}</Text></Center> 
                             
                 <br />
                   <Group gap="lg" justify="center">

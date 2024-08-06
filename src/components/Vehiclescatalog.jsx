@@ -14,7 +14,7 @@ export const Vehiclescatalog = ({ data = [] }) => {
     useEffect(() => {
       const fetchFooter = async () => {
         const data = await getFooter();
-        setFooter(data[0]);
+        setFooter(data[0] || []);
       };
       fetchFooter(); // Llama a la función dentro del contexto asíncrono
     }, []);
@@ -22,6 +22,9 @@ export const Vehiclescatalog = ({ data = [] }) => {
     const navigate = useNavigate();
 
     const renderCards = () => {
+        if (!data || !Array.isArray(data)) {
+            return <Text>No hay data disponible</Text>;
+          }
         
         return data?.map((item, index) => {
             const main = item?.Images?.find((image) => image.principal);

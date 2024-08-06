@@ -33,6 +33,7 @@ export const Contactanos = () => {
       width: "90rem",
       height: "40rem"
   }
+  console.log(footer?.social_networks);
   return (
     <Box>
       <Grid span={{span: 12, md:12}}>
@@ -67,7 +68,7 @@ export const Contactanos = () => {
                 <Center><FontAwesomeIcon icon={faClock} size='8x' color='white'/></Center>
                 <Center><Title size="5rem" c={"white"} >Horario de Trabajo</Title></Center>
                 <br />
-                <Center><Text size="3rem" c={"white"}>Lunes a viernes 8:00 am. a 5:30 pm. (Horario corrido)Sabados: 9:00 am. a 1:00 pm.</Text></Center>
+                <Center><Text size="3rem" c={"white"}>{company?.CompanyProfiles?.[0]?.schedule}</Text></Center>
                 <br /><br />
                 <Center><FontAwesomeIcon icon={faPhone} size='8x' color='white'/></Center>
                 <Center><Title size="5rem" c={"white"} >Telefono</Title></Center>
@@ -77,7 +78,7 @@ export const Contactanos = () => {
                 <Center><FontAwesomeIcon icon={faWhatsapp} size='8x' color='white'/></Center>
                 <Center><Title size="5rem" c={"white"} >WhatsApp</Title></Center>
                 <br />
-                <Center><Text size="3rem" c={"white"}>{footer?.social_networks?.[0]?.whatsapp?.number} 04146578796</Text></Center>
+                <Center><Text size="3rem" c={"white"}>{footer?.social_networks?.whatsapp?.number}</Text></Center>
                 <br /><br />
                 <Center><FontAwesomeIcon icon={faEnvelope} size='8x' color='white' /></Center>
                 <Center><Title size="5rem" c={"white"} >E-mail</Title></Center>
