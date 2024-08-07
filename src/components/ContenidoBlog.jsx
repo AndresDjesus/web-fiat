@@ -30,7 +30,7 @@ export const ContenidoBlog = ({ data = [] }) => {
                                 {item.title}
                             </Title>
                             <Text>
-                                {item.content}
+                                {item.description}
                             </Text>
                             <Text>
                                 {formattedDate}

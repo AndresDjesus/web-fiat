@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { Footer } from "./Footers";
-import { Box, Card, Grid, Button, Center, GridCol, Image, Title, Text, Stack, Group } from "@mantine/core";
+import { Box, Card, Grid, Button, Center, GridCol, Image, Title, Text, Stack, Group, Icon } from "@mantine/core";
 import { getVehicleId } from "../services/vehiclesId";
 import { useParams } from "react-router-dom";
 import '@mantine/carousel/styles.css';
 import { rem } from '@mantine/core';
 import { Carousel } from '@mantine/carousel';
 import { IconArrowRight, IconArrowLeft } from '@tabler/icons-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCar } from '@fortawesome/free-solid-svg-icons'; // Asegúrate de usar el icono correcto
-
-
+import { TbEngine } from "react-icons/tb";
+import { IoCarSportSharp } from "react-icons/io5";
+import { MdOutlineSmartScreen } from "react-icons/md";
+import { GiLever } from "react-icons/gi";
+import { FaCity } from "react-icons/fa";
+import { FaRoad } from "react-icons/fa";
 export const VehicleId = () => {
 
     const imgStyles = {
@@ -107,16 +109,16 @@ export const VehicleId = () => {
         previousControlIcon={<IconArrowLeft style={{ width: rem(50), height: rem(50) }} />}
       >
         <Carousel.Slide>
-        <Image style={imgStyles} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} />
+        <Image style={imgStyles} src={`data:image/png;base64,${vehicle?.Images[1]?.base64}`} alt={vehicle?.name} />
         </Carousel.Slide>
         <Carousel.Slide>
-        <Image style={imgStyles} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} />
+        <Image style={imgStyles} src={`data:image/png;base64,${vehicle?.Images[2]?.base64}`} alt={vehicle?.name} />
         </Carousel.Slide>
         <Carousel.Slide>
-        <Image style={imgStyles} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} />
+        <Image style={imgStyles} src={`data:image/png;base64,${vehicle?.Images[3]?.base64}`} alt={vehicle?.name} />
         </Carousel.Slide>
         <Carousel.Slide>
-        <Image style={imgStyles} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} />
+        <Image style={imgStyles} src={`data:image/png;base64,${vehicle?.Images[4]?.base64}`} alt={vehicle?.name} />
         </Carousel.Slide>
       </Carousel>
 
@@ -126,7 +128,7 @@ export const VehicleId = () => {
                 </Grid.Col>
             </Grid>                       
         </Card>
-        <br />// Sesion de caracteristicas
+        <br />
         <Card bg={"dark"}>
         <Grid>
               <Grid.Col span={{span:12 , md: 12}}>
@@ -139,10 +141,10 @@ export const VehicleId = () => {
                      <Card.Section  sx={{ height: "30rem" }}>
                                  <Title c={"white"}>Motor</Title>
                                  <Title c={"white"}>{vehicle?.motor?.name}</Title>
-                                 <FontAwesomeIcon icon={faCar} size="2x" />
+                                  <TbEngine size={"10rem"} color="white"/>
                                  <Title c={"white"}>Categoria</Title>
                                  <Title c={"white"} >{vehicle?.category?.name} </Title>
-                                 <Image style={imgStilo} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} />  
+                                 <IoCarSportSharp size={"10rem"} color="white"/>
                         </Card.Section>  
                     </Group>
                 </Grid.Col>
@@ -153,11 +155,11 @@ export const VehicleId = () => {
                      <Card.Section  sx={{ height: "35rem" }}>
                                  <Title c={"white"}> Transmision</Title>
                                  <Title c={"white"}>{vehicle?.transmission}</Title>
-                                 <Image style={imgStilo} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} /> 
+                                 <GiLever size={"10rem"} color="white"/>
                                  <br />
                                  <Title c={"white"}> Pantalla</Title>
                                  <Title c={"white"}>{vehicle?.screen}</Title>
-                                 <Image style={imgStilo} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} /> 
+                                <MdOutlineSmartScreen size={"10rem"} color="white"/>
                         </Card.Section>
                     </Group>
                 </Grid.Col>
@@ -201,7 +203,7 @@ export const VehicleId = () => {
             <Image style={imgStyles} src={`data:image/png;base64,${vehicle?.design?.Images[0]?.base64}`} alt={vehicle?.name} />
             </Carousel.Slide>
             <Carousel.Slide>
-            <Image style={imgStyles} src={`data:image/png;base64,${vehicle?.design?.Images[0]?.base64}`} alt={vehicle?.name} />
+            <Image style={imgStyles} src={`data:image/png;base64,${vehicle?.design?.Images[1]?.base64}`} alt={vehicle?.name} />
             </Carousel.Slide>
             </Carousel>
                   </Group>
@@ -227,7 +229,7 @@ export const VehicleId = () => {
             <Image style={imgCarrusel} src={`data:image/png;base64,${vehicle?.inside?.Images[0]?.base64}`} alt={vehicle?.name} />
             </Carousel.Slide>
             <Carousel.Slide>
-            <Image style={imgCarrusel} src={`data:image/png;base64,${vehicle?.inside?.Images[0]?.base64}`} alt={vehicle?.name} />
+            <Image style={imgCarrusel} src={`data:image/png;base64,${vehicle?.inside?.Images[1]?.base64}`} alt={vehicle?.name} /><Image style={imgCarrusel} src={`data:image/png;base64,${vehicle?.inside?.Images[2]?.base64}`}/>
             </Carousel.Slide>
             </Carousel>
             <br />
@@ -253,9 +255,11 @@ export const VehicleId = () => {
               <Center><Title size={"4rem"} c={"white"}>RENDIMIENTO</Title></Center>
                 <Center><Image style={imgStyles} src={`data:image/png;base64,${vehicle?.Images[0]?.base64}`} alt={vehicle?.name} />
                 </Center>
-                <Center><Title c={"white"}>CIUDAD: {vehicle?.combustible?.ciudad}</Title></Center>
+                <Center><FaCity  size={"3rem"} color="red"/>
+                <Title c={"white"}>CIUDAD: {vehicle?.combustible?.ciudad}</Title></Center>
                 <br />
-                <Center><Title c={"white"}>CARRETERA : {vehicle?.combustible?.carretera}</Title></Center>
+                <Center><FaRoad size={"3rem"} color="red"/>
+                <Title c={"white"}>CARRETERA : {vehicle?.combustible?.carretera}</Title></Center>
                 <br /><br />
                 <Center><Text size="3rem">{vehicle?.combustible?.description}</Text></Center> 
                             

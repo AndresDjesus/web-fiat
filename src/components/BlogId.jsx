@@ -46,7 +46,7 @@ export const BlogId = () => {
                     <Center><Title c={"red"}>-------</Title></Center>  
                     <br /><br />
                     <Center><Image   src={`data:image/png;base64,${blog?.Images?.[0]?.base64}`} alt={blog?.title} /></Center>
-                    <Center><Text size="3rem" c={"black"}>{blog?.content}</Text></Center>
+                    <Center><Text size="2rem" c={"black"}>{blog?.content}</Text></Center>
                 </Grid.Col>
                 </Grid>
             </Card.Section>
