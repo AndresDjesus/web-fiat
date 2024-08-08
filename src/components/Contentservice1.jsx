@@ -30,17 +30,23 @@ export const Contentservice1 = ({ data = [] }) => {
                 </Card>
                 <br />
                 <Group gap="lg" justify="center">
-                <Button variant="button" onClick={() => navigate(`/servicios/${item?.id}`)} size="lg" radius="md" c={"black"} >Ver mas</Button>
+                <Button
+                        variant="gradient" size="xl"
+                        gradient={{ from: 'red', to: 'gray', deg: 90 }}
+                        component="a" href="/contactanos">
+                        Contactar
+                </Button>
                 </Group>   
+                <br /><br /><br />
              </Grid.Col>
             <Card>
             <Grid.Col span={{ span:6, md:6 }}>
                 <Card.Section>
                 <Image  style={imgStyles} src={`data:image/png;base64,${item?.Images?.[0]?.base64}`} alt={item.title} />
-                    
                 </Card.Section>
             </Grid.Col>
             </Card>
+            
             
         </Grid>
         </Box>

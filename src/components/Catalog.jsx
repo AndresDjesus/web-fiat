@@ -1,7 +1,18 @@
+import React, { useEffect, useState } from "react";
 import { Box, Grid, Card, Image, Center, Text, Title } from "@mantine/core"
+import { getVehicles } from "../services/vehicles"
 
 export const Catalog = ({ data = [] }) => {
 
+    const [vehicles, setVehicles] = useState([]);
+
+    useEffect(() => {
+        const fetchVehicles = async () => {
+            setVehicles(await getVehicles());
+        }
+
+        fetchVehicles();
+    }, []);
     const imgStyles = {
         width: "30rem",
         height: "15rem"
@@ -14,7 +25,7 @@ export const Catalog = ({ data = [] }) => {
                     <Card>
                         <Card.Section>
                             <Center>
-                                <Image  style={imgStyles} src={item.image} alt={item.title} />
+                            <Image  src={`data:image/png;base64,${item?.Images[0]?.base64}`} alt={item?.name} />
                             </Center>
                         </Card.Section>
                         

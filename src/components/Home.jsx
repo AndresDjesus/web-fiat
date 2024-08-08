@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import { Box, Card, Grid ,Button, Center, GridCol , Image, Title, Text} from "@mantine/core";
 import Navbar from "./Navbar";
 import { Catalog } from "./Catalog";
@@ -9,7 +10,18 @@ import { Footer } from "./Footers";
 import { Servicios } from './Servicios';
 import { Taller } from './Taller';
 import Concesionario from '../imagenes/concesionario.png';
+import { getVehicles } from "../services/vehicles";
+
 export const Home = () => {
+    const [vehicles, setVehicles] = useState([]);
+
+    useEffect(() => {
+        const fetchVehicles = async () => {
+            setVehicles(await getVehicles());
+        }
+
+        fetchVehicles();
+    }, []);
         return (
             <Box>
                 <Grid>
@@ -30,7 +42,7 @@ export const Home = () => {
                         <Title c={"white"} size={"4rem"}>Ven y explora nuestra amplia selección de vehiculos nuevos disponibles</Title>
                         </Center>
                         <br />
-                        <Catalog data={[{ title: 'Fiat Argo ', image: 'https://production.autoforce.com/uploads/version/profile_image/9677/model_main_webp_comprar-trekking-1-3_33851cbe52.png.webp', description: 'Vehiculo con motor fireflive cuatro puertas modelo treking, año 2024, sincronico a estrenar', price: '29000$'},{ title: 'Fiat Cronos', image: 'https://fiat.com.ve/wp-content/uploads/2023/10/cronos-bari.png', description: 'Vehiculo tipo sedan , con motor fireflive cuatro puertas sincronico ano 2024 a estrenar la mejor calidad y el mejor precio', price: '30000$'},{ title: 'Fiat Mobi', image: 'https://carhomerental.com/cdn/shop/files/Fiat-mobi_600x600_crop_center.png?v=1705101381', description: 'Vehiculo tipo sedan , con motor fireflive cuatro puertas sincronico ano 2024 a estrenar perfecto para la ciudad', price: '24000$'},{ title: 'Fiat Cronos CVT', image: 'https://www.deruedas.com.ar/images/vehiculos/Fiat-Cronos-2024/6035_im.jpg', description: 'Vehiculo tipo sedan , con motor fireflive cuatro puertas tipo sedan caja automatica ano 2024 a estrenar', price: '32000$'}]} />
+                        <Catalog data={vehicles} />
                         <br /><br />
                         <Center>
                         <Button

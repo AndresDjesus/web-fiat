@@ -9,7 +9,6 @@ import {Empresa} from "./components/Empresa";
 import {Blog} from "./components/Blog";
 import {Contactanos} from "./components/Contactanos";
 import { VehicleId } from "./components/VehicleId";
-import {ServicesId} from "./components/ServicesId"
 import {BlogId} from "./components/BlogId"
 
 
@@ -21,7 +20,6 @@ function App() {
          <Route path="/vehiculos/:id" element={<VehicleId />} />
          <Route path="/empresa" element={<Empresa />} />
          <Route path="/servicios" element={<Services />} />
-         <Route path="/servicios/:id" element={<ServicesId />} />
          <Route path="/blog" element={<Blog />} />
          <Route path="/blog/:id" element= {<BlogId />} />
          <Route path="/contactanos" element={<Contactanos />} />

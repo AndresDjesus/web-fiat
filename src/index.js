@@ -12,7 +12,6 @@ import { Home } from './components/Home';
 import { Vehicles } from './components/Vehicles';
 import { Empresa } from './components/Empresa';
 import { Services } from './components/Services';
-import {ServicesId} from './components/ServicesId';
 import { Blog } from './components/Blog';
 import { Contactanos } from './components/Contactanos';
 import { VehicleId } from './components/VehicleId';
@@ -45,11 +44,6 @@ const router = createBrowserRouter([
   {
     path: "/servicios",
     element: <Services />,
-    errorElement: <div>error</div>
-  },
-  {
-    path: "/servicios/:id",
-    element: <ServicesId />,
     errorElement: <div>error</div>
   },
   {

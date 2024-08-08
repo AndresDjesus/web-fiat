@@ -36,7 +36,6 @@ export const Services = () => {
                     <Grid.Col span={{ span:12, md:12 }}>
                         <Contentservice1 data={services}/>
                         <br /><br />
-                        <Contentservice2 data={services}/>
                     </Grid.Col>
 
                     <Grid.Col span={{ span:12, md:12 }}>
