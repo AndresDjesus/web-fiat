@@ -24,21 +24,20 @@ export const Catalog = ({ data = [] }) => {
                 <Grid.Col span="auto">
                     <Card>
                         <Card.Section>
+                        <Title order={3} size={"2rem"}>
+                                {item.name}
+                            </Title>
                             <Center>
-                            <Image  src={`data:image/png;base64,${item?.Images[0]?.base64}`} alt={item?.name} />
+                            <Image styles={imgStyles} src={`data:image/png;base64,${item?.Images[0]?.base64}`} alt={item?.name} />
                             </Center>
+                            <br />
                         </Card.Section>
                         
                         <Card.Section mt="md">
-                            <Title order={3} size={"2rem"}>
-                                {item.title}
+                           
+                            <Title>
+                                ${item.price}
                             </Title>
-                            <Text>
-                                {item.description}
-                            </Text>
-                            <Text>
-                                {item.price}
-                            </Text>
                         </Card.Section>
 
                     </Card>

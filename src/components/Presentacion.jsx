@@ -1,10 +1,23 @@
+import React, { useEffect, useState } from "react";
 import { Box, Grid, Card, Image, Center, Text , Title} from "@mantine/core"
+import { getIndex } from "../services"
 
 export const Presentacion = ({ data = [] }) => {
     const imgStyles = {
         width: "70rem",
         height: "30rem"
     }
+
+    
+    const [index, setIndex] = useState([]);
+
+    useEffect(() => {
+        const fetchIndex = async () => {
+            setIndex(await getIndex());
+        }
+
+        fetchIndex();
+    }, []);
 
     const renderCards = () => {
     return(
@@ -13,13 +26,13 @@ export const Presentacion = ({ data = [] }) => {
             <Grid.Col span={{ span:6, md:6 }}>
                 <Center>
                 <Title size="5rem">
-                Tenemos Todo lo que tu Vehiculo Necesita
+                {index[0]?.title}
                 </Title>
                 </Center>
                 <Card>
                     <Center>
                     <Text>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias officiis error quas eveniet consequuntur illo minus. Sunt, inventore. Sint expedita porro placeat voluptatem id accusantium quasi amet fuga nemo qui?
+                    {index[0]?.content}
                     </Text>
                     </Center>                  
                 </Card>
@@ -28,7 +41,7 @@ export const Presentacion = ({ data = [] }) => {
             <Card>
             <Grid.Col span={{ span:6, md:6 }}>
                 <Card.Section>
-                    <Image style={imgStyles} src='https://i0.wp.com/autosyclubes.com.ar/wp-content/uploads/2021/07/Cronos_2022_AYC_TOP.jpg?fit=800%2C400&ssl=1' alt='Fiat Cronos' />
+                    <Image style={imgStyles} src={`data:image/png;base64,${index[0]?.Images[0]?.base64}`} alt={index[0]?.title} />
                     
                 </Card.Section>
             </Grid.Col>

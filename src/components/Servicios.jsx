@@ -1,4 +1,6 @@
+import React, { useEffect, useState } from "react";
 import { Box, Grid, Card, Image, Center, Text, Title, Button } from "@mantine/core"
+import { getServices } from "../services/services"
 
 export const Servicios = ({ data = [] }) => {
 
@@ -8,8 +10,7 @@ export const Servicios = ({ data = [] }) => {
     }
 
     const cardStyles = {
-        borderRadius: 20,
-        padding: 16,
+        borderRadius: 20
       };
 
     const renderCards = () => {
@@ -20,20 +21,17 @@ export const Servicios = ({ data = [] }) => {
                     <Card style={cardStyles}>
                         <Card.Section>
                             <Center>
-                                <Image  style={imgStyles} src={item.image} alt={item.title} />
+                                <Image  style={imgStyles} src={`data:image/png;base64,${item?.Images[0]?.base64}`} alt={item?.name} />
                             </Center>
                         </Card.Section>
                         
                         <Card.Section mt="md">
                             <Center>
                                 <Title order={3} size={"2rem"}>
-                                    {item.title}
+                                    {item.name}
                                 </Title>
                             </Center>
                             
-                            <Text>
-                                {item.description}
-                            </Text>
                         </Card.Section>
                     </Card>
                 </Grid.Col>

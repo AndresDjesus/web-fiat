@@ -11,8 +11,20 @@ import { Servicios } from './Servicios';
 import { Taller } from './Taller';
 import Concesionario from '../imagenes/concesionario.png';
 import { getVehicles } from "../services/vehicles";
+import { getServices } from "../services/services";
+import { getIndex } from "../services";
 
 export const Home = () => {
+    const [services, setServices] = useState([]);
+
+        useEffect(() => {
+            const fetchServices = async () => {
+                setServices(await getServices());
+            }
+    
+            fetchServices();
+        }, []);
+
     const [vehicles, setVehicles] = useState([]);
 
     useEffect(() => {
@@ -21,6 +33,16 @@ export const Home = () => {
         }
 
         fetchVehicles();
+    }, []);
+
+    const [index, setIndex] = useState([]);
+
+    useEffect(() => {
+        const fetchIndex = async () => {
+            setIndex(await getIndex());
+        }
+
+        fetchIndex();
     }, []);
         return (
             <Box>
@@ -63,14 +85,10 @@ export const Home = () => {
                         <Center>
                         <Title c={"white"} size={"5rem"}> Compra tu Proximo vehículo aquí en Automores Reiga</Title>
                         </Center>
-                        <Center>
-                        <Text c={"white"} size={"3rem"}>Somos tu mejor opcion a nivel metropolitano para realizar la compra de tu proximo fiat</Text>
-                        </Center>
+                        <Center><Text c={"white"} size={"3rem"}>{index[0]?.buyVehicletitle}</Text></Center>
                         <br /><br />
                         
-                        <Text c={"white"} size={"2rem"}>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci, tempora. Veritatis repudiandae necessitatibus ipsa molestias aliquam, optio earum delectus consectetur, neque quisquam eaque maxime ipsam tempora, blanditiis sed non error?
-                        </Text>
+                        <Text c={"white"} size={"2rem"}>{index[0]?.buyVehiclecontent}</Text>
                         <Center>
                         <br /><br /><br /><br />
                         <Button
@@ -86,7 +104,7 @@ export const Home = () => {
                             <Title c={"white"} size={"5rem"}> Ven y conoce los servicios que tenemos para ti </Title>
                         </Center>
                         <br /><br />
-                        <Servicios data={[{ title: 'Venta de Vehiculos ', image: 'https://thumbs.dreamstime.com/b/icono-s%C3%B3lido-negro-para-auto-save-el-dinero-y-seguro-veh%C3%ADculo-coche-la-venta-reserva-transporte-150550140.jpg', description: 'Vehiculo con motor fireflive cuatro puertas modelo treking, año 2024, sincronico a estrenar'},{ title: 'Financiamiento', image: 'https://cdn-icons-png.flaticon.com/256/2030/2030132.png', description: 'Vehiculo tipo sedan , con motor fireflive cuatro puertas sincronico ano 2024 a estrenar la mejor calidad y el mejor precio'},{ title: 'Servicios de Garantia', image: 'https://cdn-icons-png.flaticon.com/512/7541/7541603.png', description: 'Vehiculo tipo sedan , con motor fireflive cuatro puertas sincronico ano 2024 a estrenar perfecto para la ciudad'},{ title: 'Escaneo de Vehiculos', image: 'https://st2.depositphotos.com/1064969/42558/v/450/depositphotos_425581726-stock-illustration-car-diagnostic-icons-black-white.jpg', description: 'Vehiculo tipo sedan , con motor fireflive cuatro puertas tipo sedan caja automatica ano 2024 a estrenar'}]} />
+                        <Servicios data={services} />
                         
                         <br /><br />
                         <Center>

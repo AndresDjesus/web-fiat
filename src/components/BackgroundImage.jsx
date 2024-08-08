@@ -1,4 +1,6 @@
+import React, { useEffect, useState } from "react";
 import { BackgroundImage, Center, Text, Box, Grid , Image, Title} from "@mantine/core"
+import { getIndex } from "../services";
 
 export const Imagenfondo = () => {
 
@@ -6,12 +8,21 @@ export const Imagenfondo = () => {
         width: "70rem",
         height: "30rem"
     }
+    const [index, setIndex] = useState([]);
+
+    useEffect(() => {
+        const fetchIndex = async () => {
+            setIndex(await getIndex());
+        }
+
+        fetchIndex();
+    }, []);
     const renderCards = () => {
     return(
         <Box maw={5000} mx="100">
           <br /><br />
       <BackgroundImage 
-        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhon-cCM7-RoDFvN8G6_YKMQUgumET7vEmhMI3mCzBm6HAhewao_U9RZr8tZ-OFSh_AnIrFqBwzu-G7S9tR6fdIiq5lU92z-CHr2NoRDf0p7V7ayicPF5fNe1Hk7XY8u9Lj8_CX4Yu9PuM/s1600/Fiat-Recall.png" alt="Fiat Cronos" radius="md" opacity={1}
+         src={`data:image/png;base64,${index[0]?.Images[1]?.base64}`} alt={index[0]?.title} opacity={1.5}
       >
         
           <Center p="md">
@@ -20,7 +31,8 @@ export const Imagenfondo = () => {
           <Center> 
               <Title c={"red"} size="6rem">¿Por qué Nosotros?</Title>
           </Center>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur perferendis fugit vero cumque sequi neque obcaecati beatae aliquam earum dolore? Beatae sequi error maiores sunt reprehenderit eaque labore, eius saepe!
+         <Title c={"red"} size="6rem">{index[0]?.WhiWe}</Title>
+
            
           </Text>
         </Center>
