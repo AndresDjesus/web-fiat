@@ -1,6 +1,18 @@
+import React, { useEffect, useState } from "react";
 import { BackgroundImage, Center, Text, Box, Grid , Image, Title, Button} from "@mantine/core"
+import { getServices} from "../services/services";
 
 export const Taller = () => {
+
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+      const fetchServices = async () => {
+          setServices(await getServices());
+      }
+
+      fetchServices();
+  }, []);
 
     return (
         <Grid>
@@ -8,17 +20,17 @@ export const Taller = () => {
         <Box maw={4000} mx="100">
           <br /><br />
       <BackgroundImage 
-        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVfgJnLY_9foEDLEyGKTh-Dbngpc7NdyTLEO0xGgZXR7fet-pGURq3whguGCDNuVSDw86zHLqhuGDI-lfO3QyskKu5Vom7qZDuIt5jiAhzFLH3AqopAhZKYkGYmZWSXrIx6UA71rVXj08/s1600/Fiat.png" alt="Fiat Cronos" radius="md" opacity={1}
+        src={`data:image/png;base64,${services[4]?.Images[0]?.base64}`} alt="Fiat Cronos" radius="md" opacity={1}
       >
         
           <Center p="md">
           
           <Text c={"bla"} size="5rem" lineClamp={10}>
           <Center> 
-              <Title c={"red"} size="6rem">Consignacion Fisica</Title>
+              <Title c={"red"} size="6rem">{services[4]?.name}</Title>
           </Center>
             <Text c={"black"}>
-            ¡Confió en nosotras!Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur perferendis fugit vero cumque sequi neque obcaecati beatae aliquam earum dolore? Beatae sequi error maiores sunt reprehenderit eaque labore, eius saepe!
+            {services[4]?.description}
              </Text>                
           </Text>
          
@@ -41,17 +53,17 @@ export const Taller = () => {
         <Box maw={4000} mx="100">
           <br /><br />
       <BackgroundImage 
-        src="https://www.fiatprofessional.com/content/dam/moc/fiat/find_a_repair_shop_or_concessionary/mobile/find_a_repair_shop_fiat.png" alt="Fiat Cronos" radius="md" opacity={0.9}
+        src={`data:image/png;base64,${services[1]?.Images[0]?.base64}`} alt={services[1]?.title} radius="md" opacity={0.9}
       >
         
           <Center p="md">
           
           <Text c={"bla"} size="5rem" lineClamp={10}>
           <Center> 
-              <Title c={"red"} size="6rem">Taller</Title>
+              <Title c={"red"} size="6rem">{services[1]?.name}</Title>
           </Center>
             <Text c={"black"} fontWeight={700}>
-            ¡Confió en nosotras!Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur perferendis fugit vero cumque sequi neque obcaecati beatae aliquam earum dolore? Beatae sequi error maiores sunt reprehenderit eaque labore, eius saepe! 
+            {services[1]?.description} 
              </Text>                
           </Text>
          
