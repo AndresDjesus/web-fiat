@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 export const ContenidoBlog = ({ data = [] }) => {
     
     const imgStyles = {
-        width: "40rem",
-        height: "25rem"
+        width: "70rem",
+        height: "40rem"
     }
 
     const navigate = useNavigate();
@@ -22,15 +22,16 @@ export const ContenidoBlog = ({ data = [] }) => {
                         <Card.Section>
                             <Center>
                                 <Image  style={imgStyles} radius={"xl"} src={`data:image/png;base64,${item?.Images?.[0]?.base64}`} alt={item.title} />
+
                             </Center>
                         </Card.Section>
                         
                         <Card.Section mt="md">
                             <Title order={3} size={"2rem"}>
-                                {item.title}
+                                {item?.title}
                             </Title>
                             <Text>
-                                {item.description}
+                                {item?.description}
                             </Text>
                             <Text>
                                 {formattedDate}

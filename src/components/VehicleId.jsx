@@ -85,12 +85,12 @@ export const VehicleId = () => {
                             <Grid>
                             <Grid.Col span={{ span:6, md:6 }}>
                             <Group gap="lg" justify="center">
-                            <Button  bg={"white"} variant="button" size="xl" radius="xl" c={"black"} >Contactar</Button>
+                            <Button  bg={"white"} variant="button" size="xl" radius="xl" c={"black"} component="a" href="/contactanos">Contactar</Button>
                             </Group>  
                             </Grid.Col>
                             <Grid.Col span={{ span:6, md:6 }}>
                             <Group gap="lg" justify="center">
-                            <Button  bg={"white"} variant="button" size="xl" radius="xl" c={"black"} >Financiamiento</Button>
+                            <Button  bg={"white"}  variant="button" size="xl" radius="xl" c={"black"} component="a" href="/servicios" >Financiamiento</Button>
                             </Group>  
                             </Grid.Col>
                             </Grid>
@@ -262,12 +262,7 @@ export const VehicleId = () => {
                 <Title c={"white"}>CARRETERA : {vehicle?.combustible?.carretera}</Title></Center>
                 <br /><br />
                 <Center><Text size="3rem">{vehicle?.combustible?.description}</Text></Center> 
-                            
-                <br />
-                  <Group gap="lg" justify="center">
-                     <Button  bg={"red"} variant="button" size="xl" radius="xl" ><Title size={"1rem"}>DESCARGAR FICHA TECNICA</Title></Button>
-                   </Group>
-                            
+                            <br /><br />
             </Grid.Col>
           </Grid>
         </Card>

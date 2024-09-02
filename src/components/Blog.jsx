@@ -9,15 +9,17 @@ import { getBlog } from "../services/blog";
 export const Blog = () => {
 
         const [blog, setBlog] = useState([]);
-      
         useEffect(() => {
             const fetchBlog = async () => {
               const data = await getBlog();
-              setBlog(data[0]);
+              setBlog(data);
             };
          
             fetchBlog(); // Llama a la función dentro del contexto asíncrono
           }, []);
+
+          console.log (getBlog, 'DATOOOOS222222222222222')
+          console.log (blog, 'DATOOOOS')
     
     return (
         <Box>
@@ -34,7 +36,8 @@ export const Blog = () => {
                         <Center><Title size={"3rem"} c={"white"}>Todas las noticias del Mundo Automotriz</Title></Center>
                     </GridCol>
                     <GridCol span={{ span:12, md:12 }}>
-                        <ContenidoBlog data={[blog]}/>
+                        <ContenidoBlog data={blog}/>
+                        
                     </GridCol>
                     <Grid.Col span={{ span:12, md:12 }}>
                         <Footer />
