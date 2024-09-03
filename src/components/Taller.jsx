@@ -25,11 +25,11 @@ export const Taller = () => {
         
           <Center p="md">
           
-          <Text c={"bla"} size="5rem" lineClamp={10}>
+          <Text c={"red"} size="5rem" lineClamp={10}>
           <Center> 
               <Title c={"red"} size="6rem">{services[4]?.name}</Title>
           </Center>
-            <Text c={"black"}>
+            <Text c={"white"}>
             {services[4]?.description}
              </Text>                
           </Text>
@@ -58,11 +58,11 @@ export const Taller = () => {
         
           <Center p="md">
           
-          <Text c={"bla"} size="5rem" lineClamp={10}>
+          <Text c={"white"} size="5rem" lineClamp={10}>
           <Center> 
               <Title c={"red"} size="6rem">{services[1]?.name}</Title>
           </Center>
-            <Text c={"black"} fontWeight={700}>
+            <Text c={"white"} fontWeight={700}>
             {services[1]?.description} 
              </Text>                
           </Text>

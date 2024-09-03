@@ -23,7 +23,7 @@ export const Vehicles = () => {
                     <Grid.Col span={{ span:12, md:12 }}>
                         <Navbar />
                     </Grid.Col>
-
+                    <br /><br /><br /><br /><br /><br /><br />
                     <Grid.Col span={{ span:12, md:12 }}>
                         <Group
                           justify="center"

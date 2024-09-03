@@ -26,12 +26,13 @@ export const BlogId = () => {
     <Box>
         <Navbar />
         <Card bg={"gray"}>
+          <br /><br /><br /><br /><br /><br />
             <Card.Section>
                 <Center><Title size={"4rem"}>{blog?.title}</Title></Center>
             </Card.Section>
         </Card>
-        <Card>
-            <Card.Section>
+        <Card marginLeft={ "15px"} marginRight={ "15px"}>
+            <Card.Section marginLeft={ "15px"} marginRight={ "15px"}>
                 <br />
                 <Grid>
                 <Grid.Col span={{span:12 , md: 12}}>
@@ -46,7 +47,7 @@ export const BlogId = () => {
                     <Center><Title c={"red"}>-------</Title></Center>  
                     <br /><br />
                     <Center><Image   src={`data:image/png;base64,${blog?.Images?.[0]?.base64}`} alt={blog?.title} /></Center>
-                    <Center><Text size="2rem" c={"black"}>{blog?.content}</Text></Center>
+                    <Center><Text marginLeft={ "15px"} marginRight={ "15px"} size="2rem" c={"black"}  style={{ textAlign: 'justify', padding: '75px' , lineHeight: '1.9', backgroundColor: '#f0f0f0'}}>{blog?.content}</Text></Center>
                 </Grid.Col>
                 </Grid>
             </Card.Section>

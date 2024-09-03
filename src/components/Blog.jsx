@@ -27,6 +27,7 @@ export const Blog = () => {
                     <Grid.Col span={{ span:12, md:12 }}>
                         <Navbar />
                     </Grid.Col>
+                    <br /><br /><br /><br /><br /><br /><br />
                     <GridCol span={{ span:12, md:12 }}>
                         <Center>
                             <Title c={"white"} size={"6rem"}>Bienvenido a nuestro Blog</Title>

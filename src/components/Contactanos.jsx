@@ -40,6 +40,7 @@ export const Contactanos = () => {
         <Grid.Col span={{ span: 12, md: 12 }}>
           <Navbar />
         </Grid.Col>
+        <br /><br /><br /><br /><br /><br /><br />
         <Grid.Col bg={'blue'} span={{ span: 12, md: 12 }}>
           <Center>
             <Title  c={"white"} size={"6rem"}>

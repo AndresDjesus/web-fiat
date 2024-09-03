@@ -27,13 +27,15 @@ export const ContenidoBlog = ({ data = [] }) => {
                         </Card.Section>
                         
                         <Card.Section mt="md">
-                            <Title order={3} size={"2rem"}>
+                            <Title size={"2.5rem"} c={"black"}>
                                 {item?.title}
                             </Title>
-                            <Text>
+                            <br />
+                            <Text c={"black"} size={"2rem"}>
                                 {item?.description}
                             </Text>
-                            <Text>
+                            <br />
+                            <Text c={"black"} size={"1.5rem"}>
                                 {formattedDate}
                             </Text>
                         </Card.Section>

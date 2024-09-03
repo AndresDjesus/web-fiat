@@ -3,10 +3,12 @@ import { NavLink, Link } from "react-router-dom";
 import { IoClose, IoMenu } from "react-icons/io5";
 import '../hojas-de-estilo/Navbar.css';
 import Logo from '../imagenes/logo-navbar.png';
+import { Box} from "@mantine/core";
 
 const Navbar = () => {
  return (
-   <header className="header">
+   <Box size = "100%">
+   <header className="header" size = "100%">
      <nav className="nav_container">
       <div className="logo_navbar">
         <img src={Logo} alt = "logo" />
@@ -71,6 +73,7 @@ const Navbar = () => {
        </div>
      </nav>
    </header>
+   </Box> 
  );
 };
 

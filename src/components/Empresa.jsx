@@ -28,25 +28,26 @@ export const Empresa = () => {
                     <Grid.Col span={{ span:12, md:12 }}>
                         <Navbar />
                     </Grid.Col>
+                    <br /><br /><br /><br /><br /><br /><br />
                     <GridCol span={{ span:12, md:12 }}>
                         <Center>
                             <Title c={"white"} size={"6rem"}>Nuestra empresa</Title>
                         </Center>    
                     </GridCol>
+                    
                     <Grid.Col span={{ span:6, md:6 }}>
+                        <br />
                 <Center>
                 <Title size="5rem" c={"white"}>
                     {company?.name }
                 </Title>
                 </Center>
-                <Card>
+                <br />
                     <Center>
-                    <Text>
+                    <Text size="2.5rem" c={"white"}>
                     {company?.description}
                     </Text>
                     </Center>                  
-                </Card>
-                   
              </Grid.Col>
             <Card>
             <Grid.Col span={{ span:6, md:6 }}>
@@ -56,24 +57,28 @@ export const Empresa = () => {
             </Grid.Col>
             </Card>
                     <Grid.Col span={{ span:12, md:12 }}>
+                        <br />
                         <Title c={"white"} size={"4rem"}> Mision </Title>
-                        <br /><br />
+                        <br />
                         <Text c={"white"} size="2.5rem">
                             {company?.CompanyProfiles?.[0]?.mission}
                         </Text>
                     </Grid.Col>
+                    <br /><br />
                     <Grid.Col span={{ span:12, md:12 }}>
+                        <br />
                         <Title c={"white"} size={"4rem"}> Vision </Title>
-                        <br /><br />
+                        <br />
                         <Text c={"white"} size="2.5rem">
                             {company?.CompanyProfiles?.[0]?.vision}
                         </Text>
                     </Grid.Col>
                     <Grid.Col span={{ span:12, md:12 }}>
+                        <br />
                     <Box border radius={4} padding={20} >
                         <Title size={"4rem"}  c={"white"} weight="bold">Historia</Title>
                     </Box>      
-                        <br /><br />
+                        <br />
                         <Text c={"white"} size="2.5rem">
                             {company?.CompanyProfiles?.[0]?.history}
                         </Text>

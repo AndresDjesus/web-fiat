@@ -17,18 +17,18 @@ export const Contentservice1 = ({ data = [] }) => {
         <Grid>
             <Grid.Col span={{ span:6, md:6 }}>
                 <Center>
-                <Title size="5rem" c={'white'}>
+                <Title size="4rem" c={'white'}>
                  {item.name}
                 </Title>
                 </Center>
-                <Card>
-                    <Center>
-                    <Text>
+                <br /><br />                    <Center>
+                    <Text size="2.5rem" c={'white'}>
                     {item.description}
                     </Text>
                     </Center>               
-                </Card>
+                
                 <br />
+                <br /><br />
                 <Group gap="lg" justify="center">
                 <Button
                         variant="gradient" size="xl"

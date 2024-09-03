@@ -52,7 +52,7 @@ export const VehicleId = () => {
         <Navbar />
         <Card>
         <Card.Section>
-
+        <br /><br /><br /><br /><br /><br /><br />
         <Center><Title>Detalles del Vehiculo</Title></Center>
         </Card.Section> 
         </Card>

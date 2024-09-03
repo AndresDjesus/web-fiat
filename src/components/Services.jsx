@@ -27,13 +27,14 @@ export const Services = () => {
                     <Grid.Col span={{ span:12, md:12 }}>
                         <Navbar />
                     </Grid.Col>
-                    <br /><br />
+                    <br /><br /><br /><br /><br /><br /><br />
                     <GridCol span={{ span:12, md:12 }}>
                         <Center>
                             <Title c={"white"} size={"6rem"}>Tenemos los mejores Servicios para ti</Title>
                         </Center>
                     </GridCol>
                     <Grid.Col span={{ span:12, md:12 }}>
+                        <br /><br />
                         <Contentservice1 data={services}/>
                         <br /><br />
                     </Grid.Col>

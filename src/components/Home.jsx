@@ -13,6 +13,7 @@ import Concesionario from '../imagenes/concesionario.png';
 import { getVehicles } from "../services/vehicles";
 import { getServices } from "../services/services";
 import { getIndex } from "../services";
+import { getCompany } from "../services/company";
 
 export const Home = () => {
     const [services, setServices] = useState([]);
@@ -44,6 +45,16 @@ export const Home = () => {
 
         fetchIndex();
     }, []);
+
+    const [company, setCompany] = useState([]);
+    useEffect(() => {
+        const fetchCompany = async () => {
+          const data = await getCompany();
+          setCompany(data[0]);
+        };
+     
+        fetchCompany(); // Llama a la función dentro del contexto síncrono
+      }, []);
         return (
             <Box>
                 <Grid>
@@ -51,9 +62,10 @@ export const Home = () => {
                         <Navbar />
                     </Grid.Col>
                     <Grid>
-
+                    <br /><br />
                     <Grid.Col span={{ span:12, md:12}} >
                         <br />
+                        <br /><br /><br /><br /><br /><br /><br />
                         <Presentacion />
                     </Grid.Col> 
                     </Grid>
@@ -121,14 +133,16 @@ export const Home = () => {
                     <Grid.Col span={{ span:12, md:12}}>
                         <Imagenfondo />
                     </Grid.Col>
+                    <br /><br />
                     <Grid.Col span={{ span:12, md:12}}>
+                        <br /><br /><br /><br />
                         <Imagenfondo2 />
                     </Grid.Col>
                     <Grid.Col>
                     <Center>
                         <Title c={"white"} size={"5rem"}> Ven y vive la Experiencia Fiat</Title>
                         </Center>
-                        <Image width="60%" height="auto" src={Concesionario} radius="md" />
+                        <Image  radius={"xl"} src={`data:image/png;base64,${company?.Images?.[0]?.base64}`} alt={company?.name} />
                     </Grid.Col>
 
                     <Grid.Col>
