@@ -73,7 +73,7 @@ export const Home = () => {
                     <Grid.Col span={{ span:12, md:12 }}>
                         <br />
                         <Center>
-                        <Title c={"white"} size={"4rem"}>Ven y explora nuestra amplia selección de vehiculos nuevos disponibles</Title>
+                        <Title c={"white"} size={"4rem"}>Ven y explora nuestra amplia selección de vehículos nuevos disponibles</Title>
                         </Center>
                         <br />
                         <Catalog data={vehicles} />

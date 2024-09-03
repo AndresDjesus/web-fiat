@@ -38,7 +38,7 @@ const Navbar = () => {
                to="/vehiculos"
                className="nav__link"
              >
-               Vehiculos
+               Vehículos
              </NavLink>
            {/* </li> */}
            <li className="nav__item">

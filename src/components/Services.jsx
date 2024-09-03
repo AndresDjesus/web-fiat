@@ -23,7 +23,7 @@ export const Services = () => {
 
     return (
         <Box>
-            <Grid>
+            <Grid  padding = "40px">
                     <Grid.Col span={{ span:12, md:12 }}>
                         <Navbar />
                     </Grid.Col>
