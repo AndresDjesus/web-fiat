@@ -15,7 +15,7 @@ export const Footer = () => {
   }, []);
 
   console.log(footer)
-    
+  console.log(footer?.social_networks?.gmail?.url)    
     function renderCards(){
     return(
 
@@ -58,17 +58,17 @@ export const Footer = () => {
           <Group gap="lg">
           <Button size='3x' variant="outline">
             <FontAwesomeIcon icon={faInstagram} size='4x' color='white' 
-            onClick={() => window.open(footer?.social_networks?.[0]?.instagram?.url, '_blank')}
+            onClick={() => window.open(footer?.social_networks?.instagram?.url)}
             />
           </Button>
           <Button size='3x' variant="outline">
             <FontAwesomeIcon icon={faEnvelope} size='4x' color='white' 
-            onClick={() => window.open(footer?.social_networks?.[0]?.email?.url, '_blank')}
+            onClick={() => window.open(footer?.social_networks?.gmail?.url)}
             />
           </Button>
           <Button size='3x' variant="outline">
             <FontAwesomeIcon icon={faWhatsapp} size='4x' color='white'
-            onClick={() => window.open(footer?.social_networks?.[0]?.whatsapp?.url, '_blank')}
+            onClick={() => window.open(footer?.social_networks?.whatsapp?.url)}
             />
           </Button>
           </Group>

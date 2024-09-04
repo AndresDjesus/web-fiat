@@ -34,6 +34,7 @@ export const VehicleId = () => {
     const { id } = useParams();
     const [vehicle, setVehicle] = useState(null);
 
+
   useEffect(() => {
     const fetchVehicleId = async (id) => {
       try {
@@ -43,6 +44,7 @@ export const VehicleId = () => {
         console.error('Error fetching vehicle:', error);
       }
     };
+
 
     fetchVehicleId(id);
   }, []);

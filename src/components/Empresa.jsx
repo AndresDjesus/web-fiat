@@ -86,14 +86,14 @@ export const Empresa = () => {
                     <Grid.Col span={{ span:12, md:12 }}>
                         <Title c={"white"} size={"4rem"}> Ubicacion </Title>
                         <br /><br />
-                        <AspectRatio ratio={10 / 4}>
-                        <iframe
-                                src="https://www.google.com/maps/place/Automotores+Reiga,+C.A./@10.48434,-66.9072973,17z/data=!3m1!4b1!4m6!3m5!1s0x8c2a5f324e4f3e73:0x4dfb3dfac4e2140e!8m2!3d10.48434!4d-66.9072973!16s%2Fg%2F11f3r694v9?entry=ttu"
-                                title="Google map"
-                                style={{ border: 0 }}
-                              />
-                            </AspectRatio>
-                          );
+                        <AspectRatio ratio={8 / 4}>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.2070235067645!2d-66.90729730000001!3d10.48434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2a5f324e4f3e73%3A0x4dfb3dfac4e2140e!2sAutomotores%20Reiga%2C%20C.A.!5e0!3m2!1ses-419!2sve!4v1725412606184!5m2!1ses-419!2sve" 
+        title="Google map"
+        style={{ border: 0 }}
+      />
+    </AspectRatio>
+  );
                     </Grid.Col>
                     <Grid.Col span={{ span:12, md:12 }}>
                         <Footer />

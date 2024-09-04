@@ -14,7 +14,7 @@ export const Vehiclescatalog = ({ data = [] }) => {
     useEffect(() => {
       const fetchFooter = async () => {
         const data = await getFooter();
-        setFooter(data[0] || []);
+        setFooter(data [0]);
       };
       fetchFooter(); // Llama a la función dentro del contexto asíncrono
     }, []);
@@ -55,11 +55,11 @@ export const Vehiclescatalog = ({ data = [] }) => {
                         <Group gap="lg" justify="center">
                             <Button variant="button" onClick={() => navigate(`/vehiculos/${item?.id}`)} size="lg" radius="md" c={"black"} >Ver mas</Button>
                          <Button size='3x' variant="default">
-                        <FontAwesomeIcon icon={faInstagram} size='4x' color='red' onClick={() => window.open(footer?.social_networks?.[0]?.instagram?.url, '_blank')}
+                        <FontAwesomeIcon icon={faInstagram} size='4x' color='red' onClick={() => window.open(footer?.social_networks?.instagram?.url)}
                         />
                          </Button>
                          <Button size='3x' variant="default">
-                         <FontAwesomeIcon icon={faWhatsapp} size='4x' color='red' onClick={() => window.open(footer?.social_networks?.[0]?.whatsapp?.url, '_blank')}
+                         <FontAwesomeIcon icon={faWhatsapp} size='4x' color='red' onClick={() => window.open(footer?.social_networks?.whatsapp?.url)}
                         />
                         </Button>
                         </Group>
